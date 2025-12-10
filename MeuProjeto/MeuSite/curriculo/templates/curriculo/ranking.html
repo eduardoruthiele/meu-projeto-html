@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Ranking</title>
+</head>
+<body>
+
+<h1>Ranking</h1>
+
+<ul>
+    {% for item in itens %}
+        <li>
+            <strong>{{ item.nome }}</strong><br>
+            Ícone: {{ item.icone }}<br>
+            Total de links: {{ item.linkitem_set.count }}
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

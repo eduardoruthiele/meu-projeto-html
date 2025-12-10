@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import ItemRanking
 
 def curriculo_spiff(request):
     dados = {
@@ -20,9 +21,15 @@ def curriculo_spiff(request):
             "Lógica de programação"
         ]
     }
-
     return render(request, "curriculo/curriculo-v1.html", dados)
 
 
 def curriculo_spiff_v2(request):
     return render(request, "curriculo/curriculo-v2.html")
+
+
+def ranking(request):
+    itens = ItemRanking.objects.all()
+    return render(request, "curriculo/ranking.html", {
+        "itens": itens
+    })
