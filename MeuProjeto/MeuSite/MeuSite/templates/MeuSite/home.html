@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Home do MeuSite</title>
+</head>
+<body>
+
+    <h1>Home do MeuSite</h1>
+
+    <p>Olá, Eduardo Ruthiele 👋</p>
+    <p>Minha primeira página Django 🚀</p>
+
+    <h2>Links para os currículos</h2>
+
+    <ul>
+        <li>
+            <a href="{% url 'curriculo:curriculo_spiff' %}">
+                Currículo do Spiff
+            </a>
+        </li>
+
+        <li>
+            <a href="{% url 'curriculo:curriculo_spiff_v2' %}">
+                Currículo responsivo do Spiff
+            </a>
+        </li>
+    </ul>
+
+</body>
+</html>

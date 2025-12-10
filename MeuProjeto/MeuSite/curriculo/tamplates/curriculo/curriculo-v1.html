@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Currículo - {{ nome }}</title>
+</head>
+<body>
+
+    <h1>{{ nome }}</h1>
+    <h2>{{ cargo }}</h2>
+
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Cidade:</strong> {{ cidade }}</p>
+
+    <hr>
+
+    <h3>Sobre mim</h3>
+    <p>{{ sobre }}</p>
+
+    <hr>
+
+    <h3>Habilidades</h3>
+    <ul>
+        {% for habilidade in habilidades %}
+            <li>{{ habilidade }}</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <h3>Experiências</h3>
+    <ul>
+        {% for experiencia in experiencias %}
+            <li>{{ experiencia }}</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="/">Voltar para a Home</a>
+
+</body>
+</html>
