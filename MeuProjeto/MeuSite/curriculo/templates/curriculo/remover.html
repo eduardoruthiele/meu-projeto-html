@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Remover Dado</title>
+</head>
+<body>
+
+<h1>Remover Item</h1>
+
+<p>Tem certeza que deseja remover o item: <strong>{{ item.nome }}</strong>?</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Remover</button>
+</form>
+
+<br>
+<a href="{% url 'curriculo:ranking' %}">Cancelar</a>
+
+</body>
+</html>

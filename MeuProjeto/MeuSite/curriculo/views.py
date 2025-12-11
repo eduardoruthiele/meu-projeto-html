@@ -33,3 +33,39 @@ def ranking(request):
     return render(request, "curriculo/ranking.html", {
         "itens": itens
     })
+from django.shortcuts import render, redirect
+from .forms import ItemRankingForm
+
+def adicionar_item(request):
+    if request.method == "POST":
+        form = ItemRankingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('curriculo:ranking')
+    else:
+        form = ItemRankingForm()
+
+    return render(request, "curriculo/adicionar.html", {"form": form})
+
+from django.shortcuts import get_object_or_404
+
+def editar_item(request, id):
+    item = get_object_or_404(ItemRanking, id=id)
+
+    if request.method == "POST":
+        form = ItemRankingForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect("curriculo:ranking")
+    else:
+        form = ItemRankingForm(instance=item)
+
+    return render(request, "curriculo/editar.html", {"form": form})
+def remover_item(request, id):
+    item = get_object_or_404(ItemRanking, id=id)
+
+    if request.method == "POST":
+        item.delete()
+        return redirect("curriculo:ranking")
+
+    return render(request, "curriculo/remover.html", {"item": item})

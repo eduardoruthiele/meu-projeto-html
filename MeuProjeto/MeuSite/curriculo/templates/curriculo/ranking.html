@@ -8,12 +8,19 @@
 
 <h1>Ranking</h1>
 
+<a href="{% url 'curriculo:adicionar_item' %}">Adicionar novo item</a>
+
+<hr>
+
 <ul>
     {% for item in itens %}
         <li>
             <strong>{{ item.nome }}</strong><br>
             Ícone: {{ item.icone }}<br>
-            Total de links: {{ item.linkitem_set.count }}
+            Total de links: {{ item.linkitem_set.count }}<br>
+
+            <a href="{% url 'curriculo:editar_item' item.id %}">Editar</a> |
+            <a href="{% url 'curriculo:remover_item' item.id %}">Remover</a>
         </li>
     {% endfor %}
 </ul>

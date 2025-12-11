@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Dado</title>
+</head>
+<body>
+
+<h1>Editar Dado</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar alterações</button>
+</form>
+
+<br>
+<a href="{% url 'curriculo:ranking' %}">Voltar</a>
+
+</body>
+</html>
